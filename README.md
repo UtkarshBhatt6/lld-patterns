@@ -1,1 +1,12 @@
 # lld-patterns
+- BASIC
+    - Parking Lot
+    - Vending Machine
+    - Logging Framework
+- MEDIUM
+    - ATM
+    - Elevator
+    - Pubsub
+    - Car Rental
+- HARD
+    - Splitwise
