@@ -80,7 +80,7 @@ class VendingMachine{
     private:
         map<ProductType,Product> productCatalog;
         Inventory inventory;
-        mutable std::mutex mtx;
+        mutable mutex mtx;
 
     public:
         void addNewProduct(Product &product){
@@ -99,7 +99,7 @@ class VendingMachine{
             return inventory.getProductQuantity(productType);
         }
         int processTransaction(Transaction &transaction){
-            std::lock_guard<std::mutex> lock(mtx);
+            lock_guard<mutex> lock(mtx);
             if(inventory.getProductQuantity(transaction.getProductType())< transaction.getProductQuantity()) return -1;
             int productPrice = productCatalog.at(transaction.getProductType()).getProductPrice();
             int requiredAmount = productPrice * transaction.getProductQuantity();
